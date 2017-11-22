@@ -1,0 +1,46 @@
+<div class="row">
+  <label class="col-sm-4">Name</label>
+  <input class="col-sm-6" #name><br>
+</div>
+
+<div class="row">
+  <label class="col-sm-4">Username</label>
+  <input class="col-sm-6" #username><br>
+</div>
+
+<div class="row">
+  <label class="col-sm-4">Email</label>
+  <input class="col-sm-6" #email><br>
+</div>
+
+<div class="row">
+  <label class="col-sm-4">Address</label>
+  <div class="col-sm-6">
+    <input placeholder="street" #street><br>
+    <input placeholder="suite" #suite><br>
+    <input placeholder="city" #city><br>
+    <input placeholder="zipcode" #zip>
+  </div>
+</div>
+
+<div class="row">
+  <label class="col-sm-4">Phone</label>
+  <input class="col-sm-6" #phone>
+</div>
+
+<div class="row">
+  <label class="col-sm-4">Website</label>
+  <input class="col-sm-6" #website>
+</div>
+
+<div class="row">
+  <label class="col-sm-4">Company</label>
+  <div class="col-sm-6">
+    <input placeholder="name" #compName><br>
+    <input placeholder="catch phrase" #catchphrase><br>
+    <input placeholder="bs" #bs>
+  </div>
+</div>
+
+<button (click)="add({name: name.value, username: username.value, mail: email.value, phone: phone.value,website: website.value}
+)">Save</button>
