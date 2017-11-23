@@ -14,9 +14,11 @@ import { PostsTodosComponent } from './posts-todos/posts-todos.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
 import { FormsModule } from '@angular/forms';
+import { DeleteComponent } from './delete/delete.component';
 
 export function RestangularConfigFactory(RestangularProvider){
   RestangularProvider.setBaseUrl('https://jsonplaceholder.typicode.com/');
+  RestangularProvider.setPlainByDefault(true);
 }
 
 @NgModule({
@@ -25,7 +27,8 @@ export function RestangularConfigFactory(RestangularProvider){
     UsersComponent,
     PostsTodosComponent,
     EditComponent,
-    AddComponent
+    AddComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ export function RestangularConfigFactory(RestangularProvider){
     UserService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ AddComponent, EditComponent ],
+  entryComponents: [ AddComponent, EditComponent, DeleteComponent ],
 })
 export class AppModule {
 

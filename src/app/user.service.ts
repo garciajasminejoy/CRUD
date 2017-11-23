@@ -31,4 +31,8 @@ export class UserService {
   updateUser(user: User): Observable<User>{
     return this.restangular.one('users', user.id).customPUT(user);
   }
+
+  deleteUser(user: User): Observable<User>{
+    return this.restangular.one('users', user.id).remove();
+  }
 }

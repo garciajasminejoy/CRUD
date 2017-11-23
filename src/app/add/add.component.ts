@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap';
 
 import { User } from '../user';
+import { Address } from '../address';
+import { Geo } from '../geo';
+import { Company } from '../company';
+
 import { UserService } from '../user.service';
 
 @Component({
@@ -11,11 +15,26 @@ import { UserService } from '../user.service';
 })
 
 export class AddComponent implements OnInit {
-  public user: User;
-
+  users: User[];
+  user: User;
   constructor(public bsModalRef: BsModalRef,
               private userService: UserService) {}
 
   ngOnInit() {
+    this.user = new User();
+    this.user.address = new Address();
+    this.user.company = new Company();
+    this.user.address.geo = new Geo();
+  }
+
+  add(user): void{
+    this.userService.addUser(user)
+        .subscribe(($user) => {
+      console.log($user);
+      this.user.id = $user.id;
+          this.users.push(this.user);
+          console.log(this.users);
+        });
+    this.bsModalRef.hide();
   }
 }

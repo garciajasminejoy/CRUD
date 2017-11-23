@@ -1,46 +1,59 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Add User</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <div class="row">
   <label class="col-sm-4">Name</label>
-  <input class="col-sm-6" #name><br>
+  <input class="col-sm-6" [(ngModel)]="user.name"><br>
 </div>
 
 <div class="row">
   <label class="col-sm-4">Username</label>
-  <input class="col-sm-6" #username><br>
+  <input class="col-sm-6" [(ngModel)]="user.username"><br>
 </div>
 
 <div class="row">
   <label class="col-sm-4">Email</label>
-  <input class="col-sm-6" #email><br>
+  <input class="col-sm-6" [(ngModel)]="user.email"><br>
 </div>
 
 <div class="row">
   <label class="col-sm-4">Address</label>
   <div class="col-sm-6">
-    <input placeholder="street" #street><br>
-    <input placeholder="suite" #suite><br>
-    <input placeholder="city" #city><br>
-    <input placeholder="zipcode" #zip>
+    <input placeholder="street" [(ngModel)]="user.address.street"><br>
+    <input placeholder="suite" [(ngModel)]="user.address.suite"><br>
+    <input placeholder="city" [(ngModel)]="user.address.city"><br>
+    <input placeholder="zipcode" [(ngModel)]="user.address.zipcode"><br>
+    <label>Geo</label>
+    <div>
+      <label>Latitude</label>
+        <input [(ngModel)]="user.address.geo.lat"><br>
+      <label>Longitude</label>
+        <input [(ngModel)]="user.address.geo.lng">
+    </div>
   </div>
 </div>
 
 <div class="row">
   <label class="col-sm-4">Phone</label>
-  <input class="col-sm-6" #phone>
+  <input class="col-sm-6" [(ngModel)]="user.phone">
 </div>
 
 <div class="row">
   <label class="col-sm-4">Website</label>
-  <input class="col-sm-6" #website>
+  <input class="col-sm-6" [(ngModel)]="user.website">
 </div>
 
 <div class="row">
   <label class="col-sm-4">Company</label>
   <div class="col-sm-6">
-    <input placeholder="name" #compName><br>
-    <input placeholder="catch phrase" #catchphrase><br>
-    <input placeholder="bs" #bs>
+    <input placeholder="name" [(ngModel)]="user.company.name"><br>
+    <input placeholder="catch phrase" [(ngModel)]="user.company.catchPhrase"><br>
+    <input placeholder="bs" [(ngModel)]="user.company.bs">
   </div>
 </div>
-
-<button (click)="add({name: name.value, username: username.value, mail: email.value, phone: phone.value,website: website.value}
-)">Save</button>
+<div class="modal-footer">
+  <button type="button" class="btn btn-success" (click)="add(user)">Add</button>
+</div>

@@ -26,11 +26,10 @@
   Company: <br>
   <div class="well">
     Name: <input [(ngModel)]="user.company.name"><br>
-    Catch Phrase: <input [(ngModel)]="user.company.catchPhrase">
+    Catch Phrase: <input [(ngModel)]="user.company.catchPhrase"><br>
     Bs: <input [(ngModel)]="user.company.bs">
   </div>
-  <button (click)="update(user)">Update</button>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Close</button>
+  <button type="button" class="btn btn-default" (click)="update(user)">Update</button>
 </div>

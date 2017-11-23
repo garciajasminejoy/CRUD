@@ -1,12 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../user';
 
+import { TemplateRef } from '@angular/core';
+
 import { UserService } from '../user.service';
 import { BsModalService } from 'ngx-bootstrap';
 import { BsModalRef } from 'ngx-bootstrap';
 
 import { AddComponent } from '../add/add.component';
 import { EditComponent } from '../edit/edit.component';
+import { DeleteComponent } from '../delete/delete.component';
 
 @Component({
   selector: 'app-users',
@@ -23,11 +26,20 @@ export class UsersComponent implements OnInit {
 
   public openModalWithComponent() {
     this.bsModalRef = this.modalService.show(AddComponent);
+    this.bsModalRef.content.users = this.users;
   }
+
   public openEditModal(user) {
     this.bsModalRef = this.modalService.show(EditComponent);
     console.log('edit modal: ', user);
     this.bsModalRef.content.user = user;
+    this.bsModalRef.content.context = this;
+  }
+
+  public openDeleteWarningModal(user) {
+    this.bsModalRef = this.modalService.show(DeleteComponent);
+    this.bsModalRef.content.user = user;
+    this.bsModalRef.content.users = this.users;
     this.bsModalRef.content.context = this;
   }
 
@@ -41,7 +53,5 @@ export class UsersComponent implements OnInit {
         this.users = users;
       });
   }
-
-
 
 }

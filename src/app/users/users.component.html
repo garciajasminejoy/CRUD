@@ -12,6 +12,6 @@
     </td>
     <td>{{user.name}}</td>
     <td><button class="btn btn-default" (click)="openEditModal(user)">Edit</button></td>
-    <td><button class="btn btn-danger">Delete</button></td>
+    <td><button class="btn btn-danger" (click)="openDeleteWarningModal(user)">Delete</button></td>
   </tr>
 </table>
