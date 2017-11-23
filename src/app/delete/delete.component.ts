@@ -4,6 +4,7 @@ import { BsModalRef } from 'ngx-bootstrap';
 
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { UsersComponent } from '../users/users.component';
 
 @Component({
   selector: 'app-delete',
@@ -11,27 +12,20 @@ import { UserService } from '../user.service';
   styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent implements OnInit {
-  delete: boolean;
   user: User;
   users: User[];
+  public context: UsersComponent;
+  public delete: Function;
 
   constructor(private modalService: BsModalService,
               public modalRef: BsModalRef,
               private userService: UserService) { }
 
   ngOnInit() {
-
-  }
-
-  confirm(user: User): void{
-    this.userService.deleteUser(user).subscribe(_user => {
-      this.modalRef.hide();
-    });
   }
 
   decline(): void{
     this.modalRef.hide();
   }
-
 
 }

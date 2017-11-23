@@ -2,19 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
-
 import { RestangularModule, Restangular } from 'ngx-restangular';
+import { AppRoutingModule } from './/app-routing.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
-import { UserService } from './user.service';
-import { AppRoutingModule } from './/app-routing.module';
-import { RouterModule } from '@angular/router';
-import { PostsTodosComponent } from './posts-todos/posts-todos.component';
+import { PosttodoComponent } from './posttodo/posttodo.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
-import { FormsModule } from '@angular/forms';
 import { DeleteComponent } from './delete/delete.component';
+
+import { UserService } from './user.service';
 
 export function RestangularConfigFactory(RestangularProvider){
   RestangularProvider.setBaseUrl('https://jsonplaceholder.typicode.com/');
@@ -25,10 +25,11 @@ export function RestangularConfigFactory(RestangularProvider){
   declarations: [
     AppComponent,
     UsersComponent,
-    PostsTodosComponent,
+    PosttodoComponent,
     EditComponent,
     AddComponent,
-    DeleteComponent
+    DeleteComponent,
+    PosttodoComponent
   ],
   imports: [
     BrowserModule,

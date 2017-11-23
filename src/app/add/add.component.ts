@@ -30,10 +30,8 @@ export class AddComponent implements OnInit {
   add(user): void{
     this.userService.addUser(user)
         .subscribe(($user) => {
-      console.log($user);
-      this.user.id = $user.id;
+          this.user.id = $user.id;
           this.users.push(this.user);
-          console.log(this.users);
         });
     this.bsModalRef.hide();
   }
