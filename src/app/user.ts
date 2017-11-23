@@ -8,5 +8,6 @@ export class User {
   email: string;
   address: Address;
   phone: string;
+  website: string;
   company: Company;
 }

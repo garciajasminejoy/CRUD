@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { PostsTodosComponent } from './posts-todos/posts-todos.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
+import { FormsModule } from '@angular/forms';
 
 export function RestangularConfigFactory(RestangularProvider){
   RestangularProvider.setBaseUrl('https://jsonplaceholder.typicode.com/');
@@ -32,7 +33,8 @@ export function RestangularConfigFactory(RestangularProvider){
     RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule,
     RouterModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FormsModule
   ],
   providers: [
     UserService
