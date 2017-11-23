@@ -9,18 +9,23 @@
   Name: <input [(ngModel)]="user.name"><br>
   Username: <input [(ngModel)]="user.username"><br>
   Email: <input [(ngModel)]="user.email"><br>
-  Address:<br>
-  <div>
+  Address<br>
+  <div class="well">
     Street: <input [(ngModel)]="user.address.street">
     Suite: <input [(ngModel)]="user.address.suite">
     City: <input [(ngModel)]="user.address.city">
     Zip Code: <input [(ngModel)]="user.address.zipcode">
+    Geo
+    <div>
+      Latitude: <input [(ngModel)]="user.address.geo.lat"><br>
+      Longitude: <input [(ngModel)]="user.address.geo.lng">
+    </div>
   </div>
   Phone: <input [(ngModel)]="user.phone"><br>
   Website: <input [(ngModel)]="user.website"><br>
   Company: <br>
-  <div>
-    Name: <input [(ngModel)]="user.company.name">
+  <div class="well">
+    Name: <input [(ngModel)]="user.company.name"><br>
     Catch Phrase: <input [(ngModel)]="user.company.catchPhrase">
     Bs: <input [(ngModel)]="user.company.bs">
   </div>
