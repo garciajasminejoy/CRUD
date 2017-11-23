@@ -14,13 +14,13 @@ import { BsModalRef } from 'ngx-bootstrap';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  public user: User;
+  user: User;
   constructor(private userService: UserService,
               private route: ActivatedRoute,
               public bsModalRef: BsModalRef) { }
 
   ngOnInit(){
-    console.log(this.user)
+    console.log(this.user);
   }
 
 }
