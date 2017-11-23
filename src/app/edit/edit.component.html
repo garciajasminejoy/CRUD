@@ -9,9 +9,22 @@
   Name: <input [(ngModel)]="user.name"><br>
   Username: <input [(ngModel)]="user.username"><br>
   Email: <input [(ngModel)]="user.email"><br>
-  Address
+  Address:<br>
+  <div>
+    Street: <input [(ngModel)]="user.address.street">
+    Suite: <input [(ngModel)]="user.address.suite">
+    City: <input [(ngModel)]="user.address.city">
+    Zip Code: <input [(ngModel)]="user.address.zipcode">
+  </div>
   Phone: <input [(ngModel)]="user.phone"><br>
   Website: <input [(ngModel)]="user.website"><br>
+  Company: <br>
+  <div>
+    Name: <input [(ngModel)]="user.company.name">
+    Catch Phrase: <input [(ngModel)]="user.company.catchPhrase">
+    Bs: <input [(ngModel)]="user.company.bs">
+  </div>
+  <button (click)="update(user)">Update</button>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Close</button>

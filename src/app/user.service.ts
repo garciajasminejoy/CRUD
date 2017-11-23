@@ -27,4 +27,8 @@ export class UserService {
   addUser(user: User): Observable<User>{
     return this.restangular.all('users').post(user);
   }
+
+  updateUser(user: User): Observable<User>{
+    return this.restangular.one('users', user.id).customPUT(user);
+  }
 }

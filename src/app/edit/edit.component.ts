@@ -23,4 +23,8 @@ export class EditComponent implements OnInit {
     console.log(this.user);
   }
 
+  update(user): void{
+    this.userService.updateUser(user)
+      .subscribe();
+  }
 }
