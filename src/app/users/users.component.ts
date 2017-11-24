@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../user';
+import { clone, find } from 'lodash';
 
 import { UserService } from '../user.service';
 import { BsModalService } from 'ngx-bootstrap';
@@ -15,7 +16,6 @@ import { DeleteComponent } from '../delete/delete.component';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  public user;
   bsModalRef: BsModalRef;
   users: User[];
 
@@ -29,8 +29,8 @@ export class UsersComponent implements OnInit {
 
   public openEditModal(user) {
     this.bsModalRef = this.modalService.show(EditComponent);
-    console.log('edit modal: ', user);
-    this.bsModalRef.content.user = user;
+    this.bsModalRef.content.users = this.users;
+    this.bsModalRef.content.user = clone(user);
     this.bsModalRef.content.context = this;
   }
 
@@ -52,11 +52,16 @@ export class UsersComponent implements OnInit {
       });
   }
 
-  confirm(user: User): void{
-    this.userService.deleteUser(user).subscribe(_user => {
-      this.users = this.users.filter(u => u !== user);
-      this.bsModalRef.hide();
-    });
-  }
 
+  update(user): void {
+    this.userService.updateUser(user)
+        .subscribe(u => {
+          console.log('UPDATED', u);
+          const $user = find(this.users, {id: u.id});
+          console.log('OLD ', $user);
+          Object.assign($user, u);
+          console.log($user);
+          this.bsModalRef.hide();
+        });
+  }
 }

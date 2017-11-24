@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 
 import { User } from './user';
 import { Post } from './post';
@@ -23,8 +22,8 @@ export class UserService {
     return this.restangular.all('users').getList();
   }
 
-  getUser(id: number): Observable<User> {
-    return this.restangular.one('users', id).get();
+  getUser(user: User): Observable<User> {
+    return this.restangular.one('users', user.id).get();
   }
 
   addUser(user: User): Observable<User> {

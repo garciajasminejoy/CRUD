@@ -16,7 +16,6 @@ export class DeleteComponent implements OnInit {
   user: User;
   users: User[];
   public context: UsersComponent;
-  // public delete: Function;
 
   constructor(public modalRef: BsModalRef,
               private userService: UserService) { }
@@ -31,7 +30,7 @@ export class DeleteComponent implements OnInit {
     this.modalRef.hide();
   }
 
-  decline(): void{
+  decline(): void {
     this.modalRef.hide();
   }
 

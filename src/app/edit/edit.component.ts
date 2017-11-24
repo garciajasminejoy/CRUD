@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { ActivatedRoute } from '@angular/router';
 
 import { BsModalRef } from 'ngx-bootstrap';
+import { UsersComponent } from '../users/users.component';
 
 @Component({
   selector: 'app-edit',
@@ -13,16 +14,13 @@ import { BsModalRef } from 'ngx-bootstrap';
 })
 export class EditComponent implements OnInit {
   user: User;
+  context: UsersComponent;
+
   constructor(private userService: UserService,
               private route: ActivatedRoute,
               public bsModalRef: BsModalRef) { }
 
   ngOnInit() {
-    console.log(this.user);
   }
 
-  update(user): void{
-    this.userService.updateUser(user)
-      .subscribe();
-  }
 }
