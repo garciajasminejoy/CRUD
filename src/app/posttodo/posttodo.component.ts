@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 
-import { UserService } from '../user.service';
 import { Post } from '../post';
 import { Todo } from '../todo';
+import { PostsTodosService } from '../posts-todos.service';
 
 @Component({
   selector: 'app-posttodo',
@@ -15,7 +15,7 @@ export class PosttodoComponent implements OnInit {
   todos: Todo[];
 
   constructor(private route: ActivatedRoute,
-              private userService: UserService) { }
+              private postsTodosService: PostsTodosService) { }
 
   ngOnInit() {
     this.getPosts();
@@ -24,7 +24,7 @@ export class PosttodoComponent implements OnInit {
 
   getPosts(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.userService.getUserPosts(id)
+    this.postsTodosService.getUserPosts(id)
         .subscribe( post => {
           this.posts = post;
           console.log(post);
@@ -33,7 +33,7 @@ export class PosttodoComponent implements OnInit {
 
   getTodos(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.userService.getUserTodos(id)
+    this.postsTodosService.getUserTodos(id)
         .subscribe( todo => {
           this.todos = todo;
           console.log('todo:', todo);

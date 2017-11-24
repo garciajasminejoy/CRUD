@@ -9,7 +9,7 @@ import { PosttodoComponent } from './posttodo/posttodo.component';
 const routes: Routes = [
   { path: '', redirectTo: '/users', pathMatch: 'full'},
   { path: 'users', component: UsersComponent },
-  { path: 'posttodo/:id', component: PosttodoComponent}
+  { path: 'users/:id/posts-todos', component: PosttodoComponent}
 ];
 
 @NgModule({

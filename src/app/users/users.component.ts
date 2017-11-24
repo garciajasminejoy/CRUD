@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../user';
 
-import { TemplateRef } from '@angular/core';
-
 import { UserService } from '../user.service';
 import { BsModalService } from 'ngx-bootstrap';
 import { BsModalRef } from 'ngx-bootstrap';

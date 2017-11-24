@@ -8,7 +8,7 @@
   </tr>
   <tr *ngFor="let user of users" >
     <td>
-      <a routerLink="/posttodo/{{user.id}}">{{user.id}}</a>
+      <a routerLink="{{user.id}}/posts-todos">{{user.id}}</a>
     </td>
     <td>{{user.name}}</td>
     <td><button class="btn btn-default" (click)="openEditModal(user)">Edit</button></td>

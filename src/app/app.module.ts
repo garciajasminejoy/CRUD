@@ -15,6 +15,7 @@ import { AddComponent } from './add/add.component';
 import { DeleteComponent } from './delete/delete.component';
 
 import { UserService } from './user.service';
+import { PostsTodosService } from './posts-todos.service';
 
 export function RestangularConfigFactory(RestangularProvider){
   RestangularProvider.setBaseUrl('https://jsonplaceholder.typicode.com/');
@@ -41,7 +42,8 @@ export function RestangularConfigFactory(RestangularProvider){
     FormsModule
   ],
   providers: [
-    UserService
+    UserService,
+    PostsTodosService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ AddComponent, EditComponent, DeleteComponent ],

@@ -38,12 +38,4 @@ export class UserService {
   deleteUser(user: User): Observable<User> {
     return this.restangular.one('users', user.id).remove();
   }
-
-  getUserPosts(userid: number): Observable<Post[]> {
-    return this.restangular.one('users', userid).all('posts').getList();
-  }
-
-  getUserTodos(userid: number): Observable<Todo[]> {
-    return this.restangular.one('users', userid).all('todos').getList();
-  }
 }

@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UsersComponent } from '../users/users.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserService } from '../user.service';
 import { User } from '../user';
@@ -19,7 +17,7 @@ export class EditComponent implements OnInit {
               private route: ActivatedRoute,
               public bsModalRef: BsModalRef) { }
 
-  ngOnInit(){
+  ngOnInit() {
     console.log(this.user);
   }
 
